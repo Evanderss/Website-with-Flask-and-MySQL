@@ -10,5 +10,9 @@ def start():
     return render_template("site/index.html")
 
 
+@app.get("/books")
+def books():
+    return render_template("site/books.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
