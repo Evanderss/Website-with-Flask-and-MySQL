@@ -14,5 +14,11 @@ def start():
 def books():
     return render_template("site/books.html")
 
+
+@app.get("/about")
+def about():
+    return render_template("site/about.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
