@@ -20,5 +20,10 @@ def about():
     return render_template("site/about.html")
 
 
+@app.get("/admin")
+def admin_index():
+    return render_template("admin/index.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
