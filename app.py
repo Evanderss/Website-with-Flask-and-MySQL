@@ -30,5 +30,10 @@ def admin_login():
     return render_template("admin/login.html")
 
 
+@app.get("/admin/books")
+def admin_books():
+    return render_template("admin/books.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
