@@ -1,3 +1,27 @@
 {% include "admin/header.html" %}
-<h3>Book's manager</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Data about book
+                </div>
+                <div class="card-body">
+                    <form action="" method="post">
+                        <div class="mb-3">
+                          <label for="name" class="form-label">Name</label>
+                          <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId" placeholder="Write book name"> 
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-muted">
+                    Footer
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            Second Column
+        </div>
+    </div>
+</div>
 {% include "admin/footer.html" %}
