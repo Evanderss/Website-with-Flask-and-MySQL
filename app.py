@@ -37,7 +37,12 @@ def admin_books():
 
 @app.post("/admin/books/saved")
 def admin_books_saved():
-    print(request.form["name"])
+    _name = request.form["name"]
+    _url = request.form["url"]
+    _file = request.files["image"]
+    print(_name)
+    print(_url)
+    print(_file)
     return redirect("/admin/books")
 
 
