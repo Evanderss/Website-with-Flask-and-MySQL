@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template
+from flask import render_template, request, redirect
 
 
 app = Flask(__name__)
@@ -33,6 +33,12 @@ def admin_login():
 @app.get("/admin/books")
 def admin_books():
     return render_template("admin/books.html")
+
+
+@app.post("/admin/books/saved")
+def admin_books_saved():
+    print(request.form["name"])
+    return redirect("/admin/books")
 
 
 if __name__ == "__main__":
