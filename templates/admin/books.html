@@ -7,20 +7,18 @@
                     Data about book
                 </div>
                 <div class="card-body">
-                    <form action="" method="post">
+                    <form action="/admin/books/saved" method="post">
                         <div class="mb-3">
                           <label for="name" class="form-label">Name:</label>
                           <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId" placeholder="Write book name"> 
                         </div>
                         <div class="mb-3">
                           <label for="image" class="form-label">Image:</label>
-                          <input type="text"
-                            class="form-control" name="image" id="image" aria-describedby="helpId" placeholder="Select the image">
+                          <input type="file" class="form-control" name="image" id="image" aria-describedby="helpId" placeholder="Select the image">
                         </div>
                         <div class="mb-3">
                             <label for="url" class="form-label">URL to download:</label>
-                            <input type="text"
-                              class="form-control" name="url" id="url" aria-describedby="helpId" placeholder="URL to download">
+                            <input type="text" class="form-control" name="url" id="url" aria-describedby="helpId" placeholder="URL to download">
                         </div>
                         <button type="submit" class="btn btn-outline-primary">Add book</button>
                     </form>
