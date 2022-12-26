@@ -5,10 +5,10 @@ from flaskext.mysql import MySQL
 
 app = Flask(__name__)
 mysql = MySQL()
-app.config["MySQL_DATABASE_HOST"]="localhost"
-app.config["MySQL_DATABASE_USER"]="root"
-app.config["MySQL_DATABASE_PASSWORD"]=""
-app.config["MySQL_DATABASE_DB"]="website"
+app.config["MYSQL_DATABASE_HOST"]='localhost'
+app.config["MYSQL_DATABASE_USER"]='root'
+app.config["MYSQL_DATABASE_PASSWORD"]=''
+app.config["MYSQL_DATABASE_DB"]='website'
 mysql.init_app(app)
 
 
@@ -39,10 +39,12 @@ def admin_login():
 
 @app.get("/admin/books")
 def admin_books():
+    cone = mysql.connect()
+    print(cone)
     return render_template("admin/books.html")
 
 
-@app.post("/admin/books/saved")
+@app.route("/admin/books/saved", methods=["POST"])
 def admin_books_saved():
     _name = request.form["name"]
     _url = request.form["url"]
