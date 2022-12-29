@@ -54,7 +54,7 @@ def admin_books_saved():
     _url = request.form["url"]
     _file = request.files["image"]
     sql = "INSERT INTO `books` (`id`, `name`, `image`, `url`) VALUES (NULL, %s, %s, %s);"
-    dates = (_name, _file.filename, -_url)
+    dates = (_name, _file.filename, _url)
     cone = mysql.connect()
     cursor = cone.cursor()
     cursor.execute(sql, dates)
