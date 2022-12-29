@@ -40,7 +40,11 @@ def admin_login():
 @app.get("/admin/books")
 def admin_books():
     cone = mysql.connect()
-    print(cone)
+    cursor = cone.cursor()
+    cursor.execute("SELECT * FROM `books`")
+    books = cursor.fetchall()
+    cone.commit()
+    print(books)
     return render_template("admin/books.html")
 
 
