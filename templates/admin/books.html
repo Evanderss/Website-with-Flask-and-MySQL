@@ -41,13 +41,15 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% for book in books %}
                         <tr class="">
-                            <td>1</td>
-                            <td>Python</td>
-                            <td>imagen.jpg</td>
-                            <td><a href="https://www.amazon.com.mx/Mastering-Python-powerful-efficient-capabilities/dp/1800207727/ref=asc_df_1800207727/?tag=gledskshopmx-20&linkCode=df0&hvadid=547232958635&hvpos=&hvnetw=g&hvrand=2076185541452249790&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1010043&hvtargid=pla-1605764166947&psc=1">Click me</a></td>
+                            <td>{{ book[0] }}</td>
+                            <td>{{ book[1] }}</td>
+                            <td>{{ book[2] }}</td>
+                            <td><a href="{{ book[3] }}">Click me</a></td>
                             <td>Delete</td>
                         </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
