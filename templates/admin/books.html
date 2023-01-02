@@ -47,7 +47,12 @@
                             <td>{{ book[1] }}</td>
                             <td>{{ book[2] }}</td>
                             <td><a href="{{ book[3] }}">Click me</a></td>
-                            <td>Delete</td>
+                            <td>    
+                                <form action="/admin/books/delete" method="post">
+                                <input value="{{ book[0] }}" type="text" name="txtid" id="txtid">
+                                <button type="button" class="btn btn-outline-danger">Delete</button>
+                                </form>
+                            </td>
                         </tr>
                         {% endfor %}
                     </tbody>

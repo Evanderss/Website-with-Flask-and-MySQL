@@ -65,5 +65,12 @@ def admin_books_saved():
     return redirect("/admin/books")
 
 
+@app.route("/admin/books/delete", methods=["POST"])
+def admin_books_delete():
+    _id = request.form["txtid"]
+    print(_id)
+    return redirect("/admin/books")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
