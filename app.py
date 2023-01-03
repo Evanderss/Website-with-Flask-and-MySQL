@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import render_template, request, redirect
 from flaskext.mysql import MySQL
+from datetime import datetime
 
 
 app = Flask(__name__)
@@ -53,8 +54,13 @@ def admin_books_saved():
     _name = request.form["name"]
     _url = request.form["url"]
     _file = request.files["image"]
+    time = datetime.now()
+    houractual = time.strftime("%Y%H%M%S")
+    if _file.filename != "":
+        newname = houractual + "_" + _file.filename
+        _file.save("templates/site/img/" + newname)
     sql = "INSERT INTO `books` (`id`, `name`, `image`, `url`) VALUES (NULL, %s, %s, %s);"
-    dates = (_name, _file.filename, _url)
+    dates = (_name, newname, _url)
     cone = mysql.connect()
     cursor = cone.cursor()
     cursor.execute(sql, dates)
