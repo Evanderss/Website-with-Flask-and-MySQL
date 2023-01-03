@@ -67,8 +67,19 @@ def admin_books_saved():
 
 @app.route("/admin/books/delete", methods=["POST"])
 def admin_books_delete():
-    _id = request.form["txtid"]
+    _id = request.form["txtID"]
     print(_id)
+    cone = mysql.connect()
+    cursor = cone.cursor()
+    cursor.execute("SELECT * FROM `books` WHERE id=%s", (_id))
+    book = cursor.fetchall()
+    cone.commit()
+    print(book)
+    
+    cone = mysql.connect()
+    cursor = cone.cursor()
+    cursor.execute("DELETE FROM `books` WHERE id=%s", (_id))
+    cone.commit()
     return redirect("/admin/books")
 
 
