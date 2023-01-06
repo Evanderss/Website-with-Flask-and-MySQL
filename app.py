@@ -1,7 +1,8 @@
 from flask import Flask
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect, send_from_directory
 from flaskext.mysql import MySQL
 from datetime import datetime
+import os
 
 
 app = Flask(__name__)
@@ -16,6 +17,13 @@ mysql.init_app(app)
 @app.route("/")
 def start():
     return render_template("site/index.html")
+
+
+@app.get("/img/<imagen>")
+def images(imagen):
+    print(imagen)
+    return send_from_directory(os.path.join("templates/site/img"),imagen)
+
 
 
 @app.get("/books")
