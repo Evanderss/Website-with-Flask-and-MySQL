@@ -27,7 +27,12 @@ def images(imagen):
 
 @app.get("/books")
 def books():
-    return render_template("site/books.html")
+    cone = mysql.connect()
+    cursor = cone.cursor()
+    cursor.execute("SELECT * FROM `books`")
+    books = cursor.fetchall()
+    cone.commit()
+    return render_template("site/books.html", books=books)
 
 
 @app.get("/about")
@@ -90,7 +95,6 @@ def admin_books_delete():
     print(book)
     if os.path.exists("templates/site/img/" + str(book[0][0])):
         os.unlink("templates/site/img/" + str(book[0][0]))
-    
     cone = mysql.connect()
     cursor = cone.cursor()
     cursor.execute("DELETE FROM `books` WHERE id=%s", (_id))

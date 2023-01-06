@@ -1,49 +1,18 @@
 {% include "site/header.html" %}
 <h2>Book's section</h2>
     <div class="row">
+        {% for book in books %}
         <div class="col-md-3">
             <div class="card">
-                <img class="card-img-top" src="https://m.media-amazon.com/images/I/51qnOI8v+jL._SX258_BO1,204,203,200_.jpg" alt="Title">
+                <img class="card-img-top" src="/img/{{ book[2] }}" alt="Title">
                 <div class="card-body">
-                    <h4 class="card-title">Excelent book about Python</h4>
+                    <h4 class="card-title">{{ book[1] }}</h4>
                     <p class="card-text">
-                        <a name="" id="" class="btn btn-outline-primary" href="https://www.amazon.com.mx/Mastering-Python-powerful-efficient-capabilities/dp/1800207727/ref=asc_df_1800207727/?tag=gledskshopmx-20&linkCode=df0&hvadid=547232958635&hvpos=&hvnetw=g&hvrand=2076185541452249790&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1010043&hvtargid=pla-1605764166947&psc=1" role="button">Download</a>
+                        <a name="" id="" class="btn btn-outline-primary" href="{{ book[3] }}" role="button">Download</a>
                     </p>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card">
-                <img class="card-img-top" src="https://m.media-amazon.com/images/I/41tl0CZNzNL._SX397_BO1,204,203,200_.jpg" alt="Title">
-                <div class="card-body">
-                    <h4 class="card-title">Excelent book about AWS</h4>
-                    <p class="card-text">
-                        <a name="" id="" class="btn btn-outline-primary" href="https://www.amazon.com.mx/Certified-Cloud-Practitioner-Study-Guide/dp/1119490707/ref=asc_df_1119490707/?tag=gledskshopmx-20&linkCode=df0&hvadid=360925175931&hvpos=&hvnetw=g&hvrand=10692788313520807396&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1010043&hvtargid=pla-774475927562&psc=1" role="button">Download</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card">
-                <img class="card-img-top" src="https://m.media-amazon.com/images/I/51D7jQMbzNL._SX258_BO1,204,203,200_QL70_ML2_.jpg" alt="Title">
-                <div class="card-body">
-                    <h4 class="card-title">Excelent book about Java</h4>
-                    <p class="card-text">
-                        <a name="" id="" class="btn btn-outline-primary" href="https://www.amazon.com.mx/Core-Java-Fundamentals-Cay-Horstmann/dp/0137673620/ref=asc_df_0137673620/?tag=gledskshopmx-20&linkCode=df0&hvadid=547232958635&hvpos=&hvnetw=g&hvrand=8655112961896828726&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1010043&hvtargid=pla-1431127718125&psc=1" role="button">Download</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card">
-                <img class="card-img-top" src="https://m.media-amazon.com/images/I/41gRUd75+XL._SX258_BO1,204,203,200_.jpg" alt="Title">
-                <div class="card-body">
-                    <h4 class="card-title">Excelent book about Docker</h4>
-                    <p class="card-text">
-                        <a name="" id="" class="btn btn-outline-primary" href="https://www.amazon.com.mx/Docker-Certified-Associate-DCA-Guide/dp/183921189X/ref=asc_df_183921189X/?tag=gledskshopmx-20&linkCode=df0&hvadid=629975543261&hvpos=&hvnetw=g&hvrand=11491354931373510857&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1010043&hvtargid=pla-955902615075&psc=1" role="button">Download</a>
-                    </p>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 {% include "site/footer.html" %}
