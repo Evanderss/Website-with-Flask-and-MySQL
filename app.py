@@ -22,8 +22,7 @@ def start():
 @app.get("/img/<imagen>")
 def images(imagen):
     print(imagen)
-    return send_from_directory(os.path.join("templates/site/img"),imagen)
-
+    return send_from_directory(os.path.join("templates/site/img"), imagen)
 
 
 @app.get("/books")
