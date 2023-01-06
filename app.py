@@ -84,10 +84,12 @@ def admin_books_delete():
     print(_id)
     cone = mysql.connect()
     cursor = cone.cursor()
-    cursor.execute("SELECT * FROM `books` WHERE id=%s", (_id))
+    cursor.execute("SELECT image FROM `books` WHERE id=%s", (_id))
     book = cursor.fetchall()
     cone.commit()
     print(book)
+    if os.path.exists("templates/site/img/" + str(book[0][0])):
+        os.unlink("templates/site/img/" + str(book[0][0]))
     
     cone = mysql.connect()
     cursor = cone.cursor()
