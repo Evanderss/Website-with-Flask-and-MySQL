@@ -1,11 +1,12 @@
 from flask import Flask
-from flask import render_template, request, redirect, send_from_directory
+from flask import render_template, request, redirect, send_from_directory, session
 from flaskext.mysql import MySQL
 from datetime import datetime
 import os
 
 
 app = Flask(__name__)
+app.secret_key = "evanderss"
 mysql = MySQL()
 app.config["MYSQL_DATABASE_HOST"]='localhost'
 app.config["MYSQL_DATABASE_USER"]='root'
@@ -56,6 +57,10 @@ def admin_login_post():
     _password = request.form["password"]
     print(_user)
     print(_password)
+    if _user == "admin" and _password == "123":
+        session["login"] = True
+        session["user"] = "Admin"
+        return render_template("/admin")
     return render_template("admin/login.html")
 
 
