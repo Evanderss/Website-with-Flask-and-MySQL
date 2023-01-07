@@ -50,6 +50,15 @@ def admin_login():
     return render_template("admin/login.html")
 
 
+@app.post("/admin/login")
+def admin_login_post():
+    _user = request.form["user"]
+    _password = request.form["password"]
+    print(_user)
+    print(_password)
+    return render_template("admin/login.html")
+
+
 @app.get("/admin/books")
 def admin_books():
     cone = mysql.connect()
