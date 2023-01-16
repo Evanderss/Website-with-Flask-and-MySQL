@@ -64,6 +64,12 @@ def admin_login_post():
     return render_template("admin/login.html")
 
 
+@app.get("/admin/logout")
+def admin_logout():
+    session.clear()
+    return redirect("/")
+
+
 @app.get("/admin/books")
 def admin_books():
     cone = mysql.connect()
