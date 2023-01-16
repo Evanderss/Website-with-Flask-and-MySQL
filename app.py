@@ -15,7 +15,7 @@ app.config["MYSQL_DATABASE_DB"]='website'
 mysql.init_app(app)
 
 
-@app.route("/")
+@app.get("/")
 def start():
     return render_template("site/index.html")
 
@@ -24,6 +24,11 @@ def start():
 def images(imagen):
     print(imagen)
     return send_from_directory(os.path.join("templates/site/img"), imagen)
+
+
+@app.get("/css/<filecss>")
+def css_link(filecss):
+    return send_from_directory(os.path.join("templates/site/css"), filecss)
 
 
 @app.get("/books")
