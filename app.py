@@ -72,6 +72,8 @@ def admin_logout():
 
 @app.get("/admin/books")
 def admin_books():
+    if not "login" in session:
+        return redirect("/admin/login")
     cone = mysql.connect()
     cursor = cone.cursor()
     cursor.execute("SELECT * FROM `books`")
