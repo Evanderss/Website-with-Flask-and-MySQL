@@ -87,6 +87,8 @@ def admin_books():
 
 @app.route("/admin/books/saved", methods=["POST"])
 def admin_books_saved():
+    if not "login" in session:
+        return redirect("/admin/login")
     _name = request.form["name"]
     _url = request.form["url"]
     _file = request.files["image"]
@@ -109,6 +111,8 @@ def admin_books_saved():
 
 @app.route("/admin/books/delete", methods=["POST"])
 def admin_books_delete():
+    if not "login" in session:
+        return redirect("/admin/login")
     _id = request.form["txtID"]
     print(_id)
     cone = mysql.connect()
