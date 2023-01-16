@@ -43,6 +43,8 @@ def about():
 
 @app.get("/admin")
 def admin_index():
+    if not "login" in session:
+        return redirect("/admin/login")
     return render_template("admin/index.html")
 
 
