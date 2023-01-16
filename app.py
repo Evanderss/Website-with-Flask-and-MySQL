@@ -87,7 +87,7 @@ def admin_books():
     books = cursor.fetchall()
     cone.commit()
     print(books)
-    return render_template("admin/books.html", books=books)
+    return render_template("/admin/books.html", books=books)
 
 
 @app.route("/admin/books/saved", methods=["POST"])
