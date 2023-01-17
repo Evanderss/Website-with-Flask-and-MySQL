@@ -68,7 +68,7 @@ def admin_login_post():
         session["login"] = True
         session["user"] = "Evan"
         return redirect("/admin")
-    return render_template("admin/login.html")
+    return render_template("admin/login.html", message = "Access denied")
 
 
 @app.get("/admin/logout")

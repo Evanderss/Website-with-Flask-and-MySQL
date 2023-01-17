@@ -48,10 +48,10 @@
                             <td>
                                 <img width="60" src="/img/{{ book[2] }}" class="img-fluid rounded-top" alt="">
                             </td>
-                            <td><a href="{{ book[3] }}">Click me</a></td>
+                            <td><a href="{{ book[3] }}" class="btn btn-outline-success">Click me</a></td>
                             <td>    
                                 <form action="/admin/books/delete" method="post">
-                                <input value="{{ book[0] }}" type="text" name="txtID" id="txtID">
+                                <input value="{{ book[0] }}" type="hidden" name="txtID" id="txtID">
                                 <button type="submit" class="btn btn-outline-danger">Delete</button>
                                 </form>
                             </td>
